@@ -1,0 +1,30 @@
+[user]
+  name = Gordon Wilson
+  email = gordoncww@gmail.com
+[github]
+  user = gordoncww
+  token = xxxxxxxxxxxxxxxxxxxxxxxxxXXXXXXXYYYYYYZZZZZZZZZZ2
+[alias]
+  aa = add --all
+  br = branch
+  co = checkout
+  ct = checkout --track
+  amend = commit --amend
+  ci = commit --verbose
+  ca = commit --all --verbose
+  dc = diff --cached
+  d = diff --color-words --ignore-all-space
+  lg = log --all --full-history --graph --pretty=format:'%C(white)%h%Creset%x09%C(yellow)%d%Creset %s %C(green)(%cr) %Creset%C(bold blue)<%an>%Creset'
+  ri = rebase --interactive
+  st = status --branch --short
+[branch]
+  autosetuprebase = always  # always --rebase on pull
+[color]
+  ui = true  # use color when outputing to terminal for all commands that can color
+[push]
+  default = tracking # only push current branch to remote
+[interactive]
+  singlekey = true  # dont need to hit enter for one-letter input
+[pack]
+  threads = 0  # autodetect num threads to use for packing repos
+
