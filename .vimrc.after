@@ -1,0 +1,78 @@
+" color ir_black
+colorscheme molokai
+set guifont=Menlo:h14
+" hide macvim toolbar:
+set guioptions-=T
+
+" use width-4 tabs for c languages
+au FileType c,objc,cpp set tabstop=4 shiftwidth=4 softtabstop=4
+
+au BufRead,BufNewFile *.less set filetype=scss
+
+" enable persistent undo
+set undodir=/tmp/
+set undofile
+
+set colorcolumn=120
+
+" Move around splits with <c-hjkl>
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+" Clear the search highlights when hitting return
+nnoremap <CR> :nohlsearch<cr>
+" Switch between buffers with leader leader
+nnoremap <leader><leader> <c-^>
+
+" map ,e and ,v to open files in the same directory as the current file
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>e :edit %%
+map <leader>v :view %%
+
+" taken from: http://stackoverflow.com/questions/356126/how-can-you-automatically-remove-trailing-whitespace-in-vim/1618401#1618401
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+" auto-strip trailing white space for ruby files
+autocmd BufWritePre *.rb :call <SID>StripTrailingWhitespaces()
+" command to strip white space from any file
+nnoremap <leader>s :call <SID>StripTrailingWhitespaces()<cr>
+
+" Keep text selected after shifting it left or right.
+vmap < <gv
+vmap > >gv
+
+" Clean up XML
+" http://vim.wikia.com/wiki/Pretty-formatting_XML
+function! DoPrettyXML()
+  " save the filetype so we can restore it later
+  let l:origft = &ft
+  set ft=
+  " delete the xml header if it exists. This will
+  " permit us to surround the document with fake tags
+  " without creating invalid xml.
+  1s/<?xml .*?>//e
+  " insert fake tags around the entire document.
+  " This will permit us to pretty-format excerpts of
+  " XML that may contain multiple top-level elements.
+  0put ='<PrettyXML>'
+  $put ='</PrettyXML>'
+  silent %!xmllint --format -
+  " xmllint will insert an <?xml?> header. it's easy enough to delete
+  " if you don't want it.
+  " delete the fake tags
+  2d
+  $d
+  " restore the 'normal' indentation, which is one extra level
+  " too deep due to the extra tags we wrapped around the document.
+  silent %<
+  " back to home
+  1
+  " restore the filetype
+  exe "set ft=" . l:origft
+endfunction
+command! PrettyXML call DoPrettyXML()
