@@ -12,3 +12,8 @@ export HISTCONTROL=erasedups
 export HISTSIZE=10000
 # Append to the history file when exiting instead of overwriting it
 shopt -s histappend
+
+# Load RVM into a shell session
+[[ -s "/Users/gordon/.rvm/scripts/rvm" ]] && source "/Users/gordon/.rvm/scripts/rvm"
+# Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.rvm/bin
