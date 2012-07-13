@@ -1,5 +1,5 @@
 # Add paths that should have been there by default
-export PATH=${PATH}:/usr/local/bin
+export PATH=/usr/local/sbin:/usr/local/bin:${PATH}
 export PATH="~/bin:$PATH"
 
 # Erase duplicates in history
