@@ -1,0 +1,24 @@
+# General Settings
+##################
+
+# only search with case sensitivity if there is mixed case
+--smart-case
+
+# Type Settings
+###############
+--type-add=ruby=.haml,.rake,.rsel,.builder
+--type-add=html=.html.erb,.html.haml
+--type-add=js=.js.erb,.coffee
+--type-add=css=.sass,.scss,.less
+--type-set=cucumber=.feature
+
+# Ignores
+#########
+--ignore-dir=log
+--ignore-dir=tmp
+--ignore-dir=doc
+--ignore-dir=coverage
+--ignore-dir=.bundle-cache
+--ignore-dir=replication
+--ignore-dir=mbdump
+--ignore-dir=fixtures
