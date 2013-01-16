@@ -1,5 +1,5 @@
 # Add paths that should have been there by default
-export PATH=${PATH}:/usr/local/bin
+export PATH=/usr/local/sbin:/usr/local/bin:${PATH}
 export PATH="~/bin:$PATH"
 
 # Erase duplicates in history
@@ -12,3 +12,8 @@ export HISTCONTROL=erasedups
 export HISTSIZE=10000
 # Append to the history file when exiting instead of overwriting it
 shopt -s histappend
+
+# Load RVM into a shell session
+[[ -s "/Users/gordon/.rvm/scripts/rvm" ]] && source "/Users/gordon/.rvm/scripts/rvm"
+# Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.rvm/bin
