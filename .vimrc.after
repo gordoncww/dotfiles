@@ -1,6 +1,8 @@
 " color ir_black
 colorscheme molokai
+color molokai
 set guifont=Menlo:h14
+
 " hide macvim toolbar:
 set guioptions-=T
 
