@@ -9,6 +9,9 @@ au FileType c,objc,cpp set tabstop=4 shiftwidth=4 softtabstop=4
 
 au BufRead,BufNewFile *.less set filetype=scss
 
+" recognize json
+au! BufRead,BufNewFile *.json set filetype=json
+
 " enable persistent undo
 set undodir=/tmp/
 set undofile
@@ -76,6 +79,16 @@ function! DoPrettyXML()
   exe "set ft=" . l:origft
 endfunction
 command! PrettyXML call DoPrettyXML()
+
+augroup json_autocmd
+  autocmd!
+  autocmd FileType json set autoindent
+  autocmd FileType json set formatoptions=tcq2l
+  autocmd FileType json set textwidth=78 shiftwidth=2
+  autocmd FileType json set softtabstop=2 tabstop=8
+  autocmd FileType json set expandtab
+  autocmd FileType json set foldmethod=syntax
+augroup END
 
 " Rename current file
 function! RenameFile()
