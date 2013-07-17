@@ -15,8 +15,3 @@ shopt -s histappend
 
 # Source bashrc commands local to this machine.
 source ~/.bashrc.local
-
-# Load RVM into a shell session
-[[ -s "/Users/gordon/.rvm/scripts/rvm" ]] && source "/Users/gordon/.rvm/scripts/rvm"
-# Add RVM to PATH for scripting
-PATH=$PATH:$HOME/.rvm/bin
