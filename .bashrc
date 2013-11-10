@@ -8,8 +8,8 @@ export PATH="~/bin:$PATH"
 #   ignorespace  ignores commands staring with space
 #   ignoreboth   ignoredups & ignorespace
 export HISTCONTROL=erasedups
-# Store 10k history entries
-export HISTSIZE=10000
+# Store 100k history entries
+export HISTSIZE=100000
 # Append to the history file when exiting instead of overwriting it
 shopt -s histappend
 
