@@ -14,6 +14,6 @@ export HISTSIZE=100000
 shopt -s histappend
 
 # Source bashrc commands local to this machine.
-source ~/.bashrc.local
+[[ -f ~/.bashrc.local ]] && source ~/.bashrc.local
 
 eval "$(rbenv init -)"
