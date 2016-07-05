@@ -16,4 +16,5 @@ shopt -s histappend
 # Source bashrc commands local to this machine.
 [[ -f ~/.bashrc.local ]] && source ~/.bashrc.local
 
-eval "$(rbenv init -)"
+# If we've got it, initialitze rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
