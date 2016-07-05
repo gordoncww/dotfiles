@@ -28,3 +28,5 @@
 [pack]
   threads = 0  # autodetect num threads to use for packing repos
 
+[core]
+	excludesfile = /Users/gordon/.gitignore
