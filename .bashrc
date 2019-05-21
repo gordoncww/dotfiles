@@ -1,6 +1,7 @@
 # Add paths that should have been there by default
 export PATH=/usr/local/sbin:/usr/local/bin:${PATH}
 export PATH="/usr/local/heroku/bin:$PATH" ## Added by the Heroku Toolbelt
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export PATH="~/bin:$PATH"
 
 # Load custom prompt
@@ -22,3 +23,10 @@ shopt -s histappend
 
 # If we've got it, initialitze rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# virtualenv
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/opt/python/libexec/bin/python
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+export WORKON_HOME=~/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
